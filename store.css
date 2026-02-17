@@ -1,0 +1,101 @@
+        body {
+            background-color: #050505;
+            color: #ffffff;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d4af37;
+        }
+
+        /* Loader */
+        #loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .loader-line {
+            width: 0%;
+            height: 1px;
+            background: #d4af37;
+            transition: width 0.5s ease;
+        }
+        .loader-text {
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 0.5em;
+            color: #d4af37;
+            margin-bottom: 20px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        /* Canvas container */
+        #canvas-container {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100vh;
+            z-index: 0;
+            opacity: 0.6;
+            pointer-events: none; /* Let clicks pass through */
+        }
+        
+        @media (max-width: 768px) {
+            #canvas-container {
+                width: 100%;
+                opacity: 0.3;
+            }
+        }
+
+        /* Text Selection */
+        ::selection {
+            background: #d4af37;
+            color: #000;
+        }
+
+        /* Smooth Reveal Class */
+        .reveal-text {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 1s ease-out;
+        }
+        .reveal-text.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: #d4af37;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
